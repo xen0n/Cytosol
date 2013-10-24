@@ -26,13 +26,13 @@ finds himself repeatedly writing. The author released this library first
 because he was (again) going to write a new app, and instantly realized he
 would be duplicating much boilerplate if such a library did not exist. He went
 on to refactoring code, and this library was made. The code is originated from
-the [JNRain for Android](jnrain-android) project, with minimal modification to
+the [JNRain for Android][jnrain-android] project, with minimal modification to
 make it suitable for other apps.
 
 Cytosol 是一个 Android 辅助库, 内含一些作者发现自己在不断重复实现的代码.
 某一天, 作者 (又) 准备开始写一个新应用, 然后就发现如果没有这样一个库可用的话,
 自己就会重复很多辅助代码了. 作者马上着手重构自己之前应用的代码,
-于是就诞生了这个项目. 这个库的代码是源自[江南听雨安卓客户端](jnrain-android)的,
+于是就诞生了这个项目. 这个库的代码是源自[江南听雨安卓客户端][jnrain-android]的,
 包含一些小改动, 让它适用于其他应用的环境.
 
 [jnrain-android]: https://github.com/jnrainerds/jnrain-android
@@ -40,9 +40,9 @@ Cytosol 是一个 Android 辅助库, 内含一些作者发现自己在不断重�
 
 ## License / 许可证
 
-This project is licensed under the [Apache Version 2.0](apache-2.0) license.
+This project is licensed under the [Apache Version 2.0][apache-2.0] license.
 
-本项目采用 [Apache Version 2.0](apache-2.0) 许可证.
+本项目采用 [Apache Version 2.0][apache-2.0] 许可证.
 
 [apache-2.0]: http://www.apache.org/licenses/LICENSE-2.0.html
 
@@ -58,13 +58,18 @@ This project is licensed under the [Apache Version 2.0](apache-2.0) license.
     Usage is nearly the same as using RoboSpice directly, of course.
 
 	You can also find base classes that provide integration with the excellent
-	[SlidingMenu](slidingmenu) library. SlidingMenu's upstream seems pretty
+	[SlidingMenu][slidingmenu] library. SlidingMenu's upstream seems pretty
     inactive for now, so the SlidingMenu used in this library is forked by
+    the developer to provide several bugfixes and improvements.
 
 	继承我们的 RoboSpice 支持服务, 然后让你的 `Activity` 和 `Fragment`
 	继承它们加了 `SpicedRobo` 前缀的基类. 现在就可以用一个 `makeSpiceRequest`
 	调用来发送可靠的异步 HTTP 请求了! 当然了, 用法和直接用 RoboSpice
 	几乎是一样的.
+
+    你还能找到和非常靠谱的 [SlidingMenu][slidingmenu] 库集成的基类. SlidingMenu
+    的上游项目现在相当不活跃, 所以我们使用的是本项目开发者的一个 fork,
+    含有一些 bug 修复补丁和改进.
 
 *	Common boilerplate for Android apps / 安卓应用的常见辅助代码
 
