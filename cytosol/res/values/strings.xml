@@ -18,19 +18,19 @@
 
     <!-- Status toasts -->
     <!-- General -->
-    <string name="msg_network_fail">Network failure</string>
+    <string name="cy__msg_network_fail">Network failure</string>
 
     <!-- UI -->
-    <string name="msg_exit_doubleclick">Press Back again in {0} sec(s) to exit</string>
+    <string name="cy__msg_exit_doubleclick">Press Back again in {0} sec(s) to exit</string>
 
     <!-- Dialog strings -->
     <!-- New version available dialog -->
-    <string name="new_version_available">Version {0} available</string>
-    <string name="new_version_ok_btn">Try it out</string>
-    <string name="new_version_cancel_btn">Not now</string>
-    <string name="new_version_number"><![CDATA[<b>{0}</b>]]></string>
-    <string name="new_version_number_w_codename"><![CDATA[{0} [<b>{1}</b>]]]></string>
-    <string name="new_version_message">
+    <string name="cy__new_version_available">Version {0} available</string>
+    <string name="cy__new_version_ok_btn">Try it out</string>
+    <string name="cy__new_version_cancel_btn">Not now</string>
+    <string name="cy__new_version_number"><![CDATA[<b>{0}</b>]]></string>
+    <string name="cy__new_version_number_w_codename"><![CDATA[{0} [<b>{1}</b>]]]></string>
+    <string name="cy__new_version_message">
 <![CDATA[
         <p>Version: {0}</p>
         <p>Changes:<br />
@@ -38,6 +38,6 @@
         </p>
         ]]>
     </string>
-    <string name="new_version_desc_empty">No changelog</string>
+    <string name="cy__new_version_desc_empty">No changelog</string>
 
 </resources>

@@ -107,7 +107,7 @@ public class SeekBarPreference extends Preference
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
             layout = (RelativeLayout) mInflater.inflate(
-                    R.layout.seek_bar_preference,
+                    R.layout.cy__seek_bar_preference,
                     parent,
                     false);
         } catch (Exception e) {

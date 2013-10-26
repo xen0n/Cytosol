@@ -30,7 +30,7 @@ public class NavItemView extends RelativeLayout {
     TextView textNavItem;
     View viewIsActive;
 
-    public static final int LAYOUT_RES_ID = R.layout.navitemview;
+    public static final int LAYOUT_RES_ID = R.layout.cy__navitemview;
 
     protected Context _ctx;
     // protected OnNavItemActivatedListener _onActivatedListener;

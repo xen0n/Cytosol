@@ -18,19 +18,19 @@
 
     <!-- Status toasts -->
     <!-- General -->
-    <string name="msg_network_fail">网络请求出错</string>
+    <string name="cy__msg_network_fail">网络请求出错</string>
 
     <!-- UI -->
-    <string name="msg_exit_doubleclick">{0} 秒内再按返回键退出</string>
+    <string name="cy__msg_exit_doubleclick">{0} 秒内再按返回键退出</string>
 
     <!-- Dialog strings -->
     <!-- New version available dialog -->
-    <string name="new_version_available">有更新版本 v{0} 可用</string>
-    <string name="new_version_ok_btn">下载试试</string>
-    <string name="new_version_cancel_btn">先不升级</string>
-    <string name="new_version_number"><![CDATA[<b>{0}</b>]]></string>
-    <string name="new_version_number_w_codename"><![CDATA[{0} [<b>{1}</b>]]]></string>
-    <string name="new_version_message">
+    <string name="cy__new_version_available">有更新版本 v{0} 可用</string>
+    <string name="cy__new_version_ok_btn">下载试试</string>
+    <string name="cy__new_version_cancel_btn">先不升级</string>
+    <string name="cy__new_version_number"><![CDATA[<b>{0}</b>]]></string>
+    <string name="cy__new_version_number_w_codename"><![CDATA[{0} [<b>{1}</b>]]]></string>
+    <string name="cy__new_version_message">
 <![CDATA[
         <p>版本号: {0}</p>
         <p>版本说明:<br />
@@ -38,6 +38,6 @@
         </p>
         ]]>
     </string>
-    <string name="new_version_desc_empty">暂无说明</string>
+    <string name="cy__new_version_desc_empty">暂无说明</string>
 
 </resources>

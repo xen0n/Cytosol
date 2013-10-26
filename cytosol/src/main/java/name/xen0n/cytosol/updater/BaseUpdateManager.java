@@ -215,7 +215,7 @@ public abstract class BaseUpdateManager {
             final Context ctx,
             final VersionInfo version) {
         String dialogTitle = MessageFormat.format(
-                ctx.getString(R.string.new_version_available),
+                ctx.getString(R.string.cy__new_version_available),
                 version.getName());
         String versionName;
         String desc;
@@ -224,26 +224,28 @@ public abstract class BaseUpdateManager {
         // version name, different if version has a codename
         if (version.getCodeName().length() > 0) {
             // has codename
-            versionName = MessageFormat.format(
-                    ctx.getString(R.string.new_version_number_w_codename),
-                    version.getName(),
-                    version.getCodeName());
+            versionName = MessageFormat
+                .format(
+                        ctx
+                            .getString(R.string.cy__new_version_number_w_codename),
+                        version.getName(),
+                        version.getCodeName());
         } else {
             // without codename
             versionName = MessageFormat.format(
-                    ctx.getString(R.string.new_version_number),
+                    ctx.getString(R.string.cy__new_version_number),
                     version.getName());
         }
 
         // description
         desc = version.getDesc();
         if (desc.length() == 0) {
-            desc = ctx.getString(R.string.new_version_desc_empty);
+            desc = ctx.getString(R.string.cy__new_version_desc_empty);
         }
 
         // dialog message body
         dialogMsg = Html.fromHtml(MessageFormat.format(
-                ctx.getString(R.string.new_version_message),
+                ctx.getString(R.string.cy__new_version_message),
                 versionName,
                 desc));
 
@@ -253,14 +255,14 @@ public abstract class BaseUpdateManager {
         builder.setTitle(dialogTitle);
         builder.setMessage(dialogMsg);
         builder.setPositiveButton(
-                R.string.new_version_ok_btn,
+                R.string.cy__new_version_ok_btn,
                 new OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         openApkInBrowser(ctx, version);
                     }
                 });
-        builder.setNegativeButton(R.string.new_version_cancel_btn, null);
+        builder.setNegativeButton(R.string.cy__new_version_cancel_btn, null);
 
         builder.show();
     }

@@ -81,7 +81,7 @@ public abstract class ExitPointBehaviorHelper {
                     // Toast the confirmation message.
                     ToastHelper.makeTextToast(
                             ctx,
-                            R.string.msg_exit_doubleclick,
+                            R.string.cy__msg_exit_doubleclick,
                             timeout);
                 }
 

@@ -24,7 +24,7 @@
     </style>
 
     <style name="Widget.Cytosol.NavMenuItemActiveBar">
-        <item name="android:layout_width">@dimen/nav_menu_item_active_indicator_width</item>
+        <item name="android:layout_width">@dimen/cy__nav_menu_item_active_indicator_width</item>
         <item name="android:layout_height">fill_parent</item>
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:layout_alignParentTop">true</item>
@@ -33,12 +33,12 @@
     <style name="Widget.Cytosol.NavMenuItemText">
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:paddingBottom">@dimen/nav_menu_item_padding_b</item>
-        <item name="android:paddingLeft">@dimen/nav_menu_item_padding_l</item>
-        <item name="android:paddingRight">@dimen/nav_menu_item_padding_r</item>
-        <item name="android:paddingTop">@dimen/nav_menu_item_padding_t</item>
-        <item name="android:drawablePadding">@dimen/nav_menu_icon_padding</item>
-        <item name="android:textSize">@dimen/nav_menu_text_size</item>
+        <item name="android:paddingBottom">@dimen/cy__nav_menu_item_padding_b</item>
+        <item name="android:paddingLeft">@dimen/cy__nav_menu_item_padding_l</item>
+        <item name="android:paddingRight">@dimen/cy__nav_menu_item_padding_r</item>
+        <item name="android:paddingTop">@dimen/cy__nav_menu_item_padding_t</item>
+        <item name="android:drawablePadding">@dimen/cy__nav_menu_icon_padding</item>
+        <item name="android:textSize">@dimen/cy__nav_menu_text_size</item>
     </style>
 
 </resources>

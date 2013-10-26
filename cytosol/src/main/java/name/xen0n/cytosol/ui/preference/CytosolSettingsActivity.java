@@ -61,7 +61,7 @@ public abstract class CytosolSettingsActivity
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dyn_pages);
+        setContentView(R.layout.cy__dyn_pages);
 
         viewPager = (ViewPager) findViewById(R.id.pager);
         indicator = (TitlePageIndicator) findViewById(R.id.indicator);

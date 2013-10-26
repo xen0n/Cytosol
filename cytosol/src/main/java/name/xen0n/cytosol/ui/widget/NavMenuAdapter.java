@@ -68,7 +68,7 @@ public class NavMenuAdapter extends BaseAdapter {
         NavItem item = getItem(position);
 
         if (convertView == null) {
-            convertView = _inflater.inflate(R.layout.nav_menu_item, null);
+            convertView = _inflater.inflate(R.layout.cy__nav_menu_item, null);
         }
 
         NavItemView view = (NavItemView) convertView;

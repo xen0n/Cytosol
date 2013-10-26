@@ -40,7 +40,7 @@ public abstract class CheckUpdateRequestListener
     @Override
     public void onRequestFailure(SpiceException spiceException) {
         Log.d(TAG, "err on req: " + spiceException.toString());
-        ToastHelper.makeTextToast(ctx, R.string.msg_network_fail);
+        ToastHelper.makeTextToast(ctx, R.string.cy__msg_network_fail);
     }
 
     @Override
