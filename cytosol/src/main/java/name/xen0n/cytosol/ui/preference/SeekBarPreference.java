@@ -25,7 +25,7 @@ public class SeekBarPreference extends Preference
     private final String TAG = getClass().getName();
 
     private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
-    private static final String CYTOSOLNS = "http://schemas.android.com/apk/res/name.xen0n.cytosol";
+    private static final String CYTOSOLNS = "http://schemas.xen0n.name/cytosol/android";
     private static final int DEFAULT_VALUE = 50;
 
     private int mMaxValue = 100;
