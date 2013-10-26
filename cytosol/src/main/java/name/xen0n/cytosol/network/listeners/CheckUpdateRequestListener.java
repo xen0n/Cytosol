@@ -15,6 +15,7 @@
  */
 package name.xen0n.cytosol.network.listeners;
 
+import name.xen0n.cytosol.R;
 import name.xen0n.cytosol.config.ConfigHub;
 import name.xen0n.cytosol.config.UpdaterConfigUtil;
 import name.xen0n.cytosol.ui.util.ToastHelper;
@@ -22,9 +23,6 @@ import name.xen0n.cytosol.updater.UpdateChannel;
 import name.xen0n.cytosol.updater.UpdateInfo;
 import name.xen0n.cytosol.updater.UpdateInfoFile;
 import name.xen0n.cytosol.util.GlobalUpdaterState;
-
-import org.jnrain.mobile.R;
-
 import android.content.Context;
 import android.util.Log;
 

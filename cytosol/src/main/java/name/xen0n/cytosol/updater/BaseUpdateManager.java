@@ -17,15 +17,13 @@ package name.xen0n.cytosol.updater;
 
 import java.text.MessageFormat;
 
+import name.xen0n.cytosol.R;
 import name.xen0n.cytosol.app.SpiceRequestListener;
 import name.xen0n.cytosol.config.ConfigHub;
 import name.xen0n.cytosol.config.UpdaterConfigUtil;
 import name.xen0n.cytosol.network.listeners.NotifyingCheckUpdateRequestListener;
 import name.xen0n.cytosol.network.requests.CheckUpdateRequest;
 import name.xen0n.cytosol.util.GlobalUpdaterState;
-
-import org.jnrain.mobile.R;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;

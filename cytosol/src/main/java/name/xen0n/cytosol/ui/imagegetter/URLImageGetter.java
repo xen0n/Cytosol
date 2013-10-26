@@ -19,11 +19,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
+import name.xen0n.cytosol.R;
 import name.xen0n.cytosol.app.SpiceRequestListener;
 
 import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.codec.digest.DigestUtils;
-import org.jnrain.mobile.R;
 
 import android.app.Activity;
 import android.content.Context;

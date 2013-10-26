@@ -15,8 +15,7 @@
  */
 package name.xen0n.cytosol.ui.widget;
 
-import org.jnrain.mobile.R;
-
+import name.xen0n.cytosol.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -83,8 +82,9 @@ public class NavItemView extends RelativeLayout {
                 doSetText(isInEditMode() ? "Placeholder title" : "");
             }
 
-            doSetItemIcon(isInEditMode() ? R.drawable.ic_nav_settings : a
-                .getResourceId(R.styleable.NavItemView_itemIcon, 0));
+            doSetItemIcon(isInEditMode() ? 0 : a.getResourceId(
+                    R.styleable.NavItemView_itemIcon,
+                    0));
 
             doSetCanBeActive(isInEditMode() ? true : a.getBoolean(
                     R.styleable.NavItemView_canBeActive,

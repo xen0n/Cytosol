@@ -17,8 +17,6 @@ package name.xen0n.cytosol.ui.widget;
 
 import java.util.ArrayList;
 
-import org.jnrain.mobile.R;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -49,10 +47,7 @@ public abstract class DynPageFragmentAdapter<T> extends FragmentPagerAdapter
     public abstract CharSequence getPageTitle(int position);
 
     @Override
-    public int getIconResId(int index) {
-        // TODO
-        return R.drawable.icon;
-    }
+    public abstract int getIconResId(int index);
 
     public void addItem() {
         notifyDataSetChanged();

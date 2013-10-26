@@ -18,11 +18,8 @@ package name.xen0n.cytosol.ui.preference;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
+import name.xen0n.cytosol.R;
 import name.xen0n.cytosol.ui.preference.PreferenceListFragment.OnPreferenceAttachedListener;
-
-import org.jnrain.mobile.R;
-
-import roboguice.inject.InjectView;
 import android.content.Context;
 import android.os.Bundle;
 import android.preference.Preference;
@@ -40,9 +37,7 @@ public abstract class CytosolSettingsActivity
         extends RoboSherlockFragmentActivity
         implements OnPreferenceAttachedListener, OnPreferenceChangeListener,
         OnPreferenceClickListener {
-    @InjectView(R.id.pager)
     protected ViewPager viewPager;
-    @InjectView(R.id.indicator)
     protected TitlePageIndicator indicator;
 
     public final Class<? extends BaseSettingsFragmentAdapter> SETTINGS_FRAGMENT_ADAPTER_CLASS;
@@ -67,6 +62,9 @@ public abstract class CytosolSettingsActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dyn_pages);
+
+        viewPager = (ViewPager) findViewById(R.id.pager);
+        indicator = (TitlePageIndicator) findViewById(R.id.indicator);
 
         try {
             _adapter = fragAdapterCtor.newInstance(

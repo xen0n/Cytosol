@@ -1,7 +1,6 @@
 package name.xen0n.cytosol.ui.preference;
 
-import org.jnrain.mobile.R;
-
+import name.xen0n.cytosol.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.preference.Preference;

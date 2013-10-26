@@ -18,8 +18,7 @@ package name.xen0n.cytosol.ui.widget;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jnrain.mobile.R;
-
+import name.xen0n.cytosol.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

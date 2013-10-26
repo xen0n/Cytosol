@@ -15,13 +15,11 @@
  */
 package name.xen0n.cytosol.ui.ux;
 
-import name.xen0n.cytosol.config.UIConfigConstants.ExitBehavior;
+import name.xen0n.cytosol.R;
 import name.xen0n.cytosol.config.ConfigHub;
+import name.xen0n.cytosol.config.UIConfigConstants.ExitBehavior;
 import name.xen0n.cytosol.config.UIConfigUtil;
 import name.xen0n.cytosol.ui.util.ToastHelper;
-
-import org.jnrain.mobile.R;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
