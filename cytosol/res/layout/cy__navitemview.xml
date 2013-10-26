@@ -19,11 +19,11 @@
     android:orientation="horizontal" >
 
     <View
-        android:id="@+id/viewIsActive"
+        android:id="@+id/cy__viewIsActive"
         style="@style/Widget.Cytosol.NavMenuItemActiveBar" />
 
     <TextView
-        android:id="@+id/textNavItem"
+        android:id="@+id/cy__textNavItem"
         style="@style/Widget.Cytosol.NavMenuItemText" />
 
 </LinearLayout>

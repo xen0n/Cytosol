@@ -18,6 +18,12 @@
 
     <style name="Widget.Cytosol"></style>
 
+    <style name="Widget.Cytosol.NavMenu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:divider">@null</item>
+    </style>
+
     <style name="Widget.Cytosol.NavMenuItem">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">match_parent</item>
@@ -38,7 +44,6 @@
         <item name="android:paddingRight">@dimen/cy__nav_menu_item_padding_r</item>
         <item name="android:paddingTop">@dimen/cy__nav_menu_item_padding_t</item>
         <item name="android:drawablePadding">@dimen/cy__nav_menu_icon_padding</item>
-        <item name="android:textSize">@dimen/cy__nav_menu_text_size</item>
     </style>
 
 </resources>

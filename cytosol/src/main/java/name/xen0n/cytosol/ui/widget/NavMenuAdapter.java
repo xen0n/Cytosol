@@ -18,7 +18,6 @@ package name.xen0n.cytosol.ui.widget;
 import java.util.ArrayList;
 import java.util.List;
 
-import name.xen0n.cytosol.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,10 +27,14 @@ import android.widget.BaseAdapter;
 
 public class NavMenuAdapter extends BaseAdapter {
     // private static final String TAG = "NavMenuAdapter";
+    public final int ITEM_LAYOUT_RES_ID;
+
     private LayoutInflater _inflater;
     private List<NavItem> _data;
 
-    public NavMenuAdapter(Context context) {
+    protected NavMenuAdapter(final Context context, final int itemLayoutResId) {
+        ITEM_LAYOUT_RES_ID = itemLayoutResId;
+
         _inflater = LayoutInflater.from(context);
         _data = new ArrayList<NavItem>();
     }
@@ -68,7 +71,7 @@ public class NavMenuAdapter extends BaseAdapter {
         NavItem item = getItem(position);
 
         if (convertView == null) {
-            convertView = _inflater.inflate(R.layout.cy__nav_menu_item, null);
+            convertView = _inflater.inflate(ITEM_LAYOUT_RES_ID, null);
         }
 
         NavItemView view = (NavItemView) convertView;

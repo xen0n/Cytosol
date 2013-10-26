@@ -21,7 +21,6 @@
     <dimen name="cy__nav_menu_item_padding_b">8dp</dimen>
     <dimen name="cy__nav_menu_item_padding_l">6dp</dimen>
     <dimen name="cy__nav_menu_item_padding_r">8dp</dimen>
-    <dimen name="cy__nav_menu_text_size">24sp</dimen>
     <dimen name="cy__nav_menu_icon_padding">8dp</dimen>
     <dimen name="cy__nav_menu_item_active_indicator_width">6dp</dimen>
 

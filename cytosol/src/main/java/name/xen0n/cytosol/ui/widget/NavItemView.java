@@ -30,7 +30,7 @@ public class NavItemView extends RelativeLayout {
     TextView textNavItem;
     View viewIsActive;
 
-    public static final int LAYOUT_RES_ID = R.layout.cy__navitemview;
+    public static final int DEFAULT_LAYOUT_RES_ID = R.layout.cy__navitemview;
 
     protected Context _ctx;
     // protected OnNavItemActivatedListener _onActivatedListener;
@@ -41,30 +41,34 @@ public class NavItemView extends RelativeLayout {
 
     public NavItemView(Context context) {
         super(context);
-
-        initLayout(context);
     }
 
     public NavItemView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        initLayout(context);
         initAttrs(context, attrs);
     }
 
     public NavItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
 
-        initLayout(context);
         initAttrs(context, attrs);
     }
 
-    protected void initLayout(Context ctx) {
+    protected void initLayout(
+            Context ctx,
+            int resId,
+            int titleViewId,
+            int activeBarViewId) {
         _ctx = ctx;
-        View.inflate(ctx, LAYOUT_RES_ID, this);
-        textNavItem = (TextView) findViewById(R.id.textNavItem);
-        viewIsActive = findViewById(R.id.viewIsActive);
-        // setOnClickListener(new OnNavItemClickListener());
+        View
+            .inflate(ctx, (resId == 0 ? DEFAULT_LAYOUT_RES_ID : resId), this);
+        textNavItem = (TextView) findViewById(titleViewId == 0
+                ? R.id.cy__textNavItem
+                : titleViewId);
+        viewIsActive = findViewById(activeBarViewId == 0
+                ? R.id.cy__viewIsActive
+                : activeBarViewId);
     }
 
     protected void initAttrs(Context context, AttributeSet attrs) {
@@ -74,6 +78,30 @@ public class NavItemView extends RelativeLayout {
                 0,
                 0);
         try {
+            // load layout
+            int layoutResId = a.getResourceId(
+                    R.styleable.NavItemView_itemLayout,
+                    0);
+            if (layoutResId == 0) {
+                // use library-provided layout
+                initLayout(context, 0, 0, 0);
+            } else {
+                // library consumer-defined layout
+                int titleViewId = a.getResourceId(
+                        R.styleable.NavItemView_titleViewId,
+                        0);
+                int activeBarViewId = a.getResourceId(
+                        R.styleable.NavItemView_activeBarViewId,
+                        0);
+
+                initLayout(
+                        context,
+                        layoutResId,
+                        titleViewId,
+                        activeBarViewId);
+            }
+
+            // load properties
             String textProp = a
                 .getString(R.styleable.NavItemView_android_text);
             if (textProp != null) {
