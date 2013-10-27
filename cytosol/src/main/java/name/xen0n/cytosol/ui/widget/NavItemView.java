@@ -19,13 +19,14 @@ import name.xen0n.cytosol.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
 public class NavItemView extends RelativeLayout {
-    // private static final String TAG = "NavItemView";
+    private static final String TAG = "NavItemView";
 
     TextView textNavItem;
     View viewIsActive;
@@ -60,6 +61,15 @@ public class NavItemView extends RelativeLayout {
             int resId,
             int titleViewId,
             int activeBarViewId) {
+        Log.v(TAG, "NavItemView layout ID = " + Integer.toHexString(resId));
+        Log.v(
+                TAG,
+                "textNavItem view ID = " + Integer.toHexString(titleViewId));
+        Log.v(
+                TAG,
+                "viewIsActive view ID = "
+                        + Integer.toHexString(activeBarViewId));
+
         _ctx = ctx;
         View
             .inflate(ctx, (resId == 0 ? DEFAULT_LAYOUT_RES_ID : resId), this);
@@ -84,9 +94,13 @@ public class NavItemView extends RelativeLayout {
                     0);
             if (layoutResId == 0) {
                 // use library-provided layout
+                Log.d(TAG, "Using library provided NavItemView layout.");
+
                 initLayout(context, 0, 0, 0);
             } else {
                 // library consumer-defined layout
+                Log.d(TAG, "Using app provided NavItemView layout.");
+
                 int titleViewId = a.getResourceId(
                         R.styleable.NavItemView_titleViewId,
                         0);
@@ -138,8 +152,10 @@ public class NavItemView extends RelativeLayout {
     }
 
     protected void doSetText(CharSequence text) {
+        // if (textNavItem != null) {
         _itemText = text;
         textNavItem.setText(_itemText);
+        // }
     }
 
     public void setText(int resId) {
@@ -155,12 +171,14 @@ public class NavItemView extends RelativeLayout {
     }
 
     protected void doSetItemIcon(int resId) {
+        // if (textNavItem != null) {
         _itemIconRes = resId;
         textNavItem.setCompoundDrawablesWithIntrinsicBounds(
                 _itemIconRes,
                 0,
                 0,
                 0);
+        // }
     }
 
     public void setItemIcon(int resId) {
@@ -175,7 +193,9 @@ public class NavItemView extends RelativeLayout {
         }
 
         _isActive = active;
+        // if (viewIsActive != null) {
         viewIsActive.setVisibility(active ? View.VISIBLE : View.INVISIBLE);
+        // }
     }
 
     protected void doSetCanBeActive(boolean canBeActive) {

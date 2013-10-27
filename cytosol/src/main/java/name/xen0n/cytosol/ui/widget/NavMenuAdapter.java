@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,7 @@ import android.widget.BaseAdapter;
 
 
 public class NavMenuAdapter extends BaseAdapter {
-    // private static final String TAG = "NavMenuAdapter";
+    private static final String TAG = "NavMenuAdapter";
     public final int ITEM_LAYOUT_RES_ID;
 
     private LayoutInflater _inflater;
@@ -34,6 +35,10 @@ public class NavMenuAdapter extends BaseAdapter {
 
     protected NavMenuAdapter(final Context context, final int itemLayoutResId) {
         ITEM_LAYOUT_RES_ID = itemLayoutResId;
+        Log.d(
+                TAG,
+                "NavItemView layout ID = "
+                        + Integer.toHexString(ITEM_LAYOUT_RES_ID));
 
         _inflater = LayoutInflater.from(context);
         _data = new ArrayList<NavItem>();
