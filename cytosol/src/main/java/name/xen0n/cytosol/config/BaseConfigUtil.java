@@ -54,6 +54,7 @@ public class BaseConfigUtil {
         return _preferences.getBoolean(key, defValue);
     }
 
+    @SuppressWarnings("null")
     protected int getInt(String key) {
         return getInt(key, (Integer) null);
     }
@@ -62,6 +63,7 @@ public class BaseConfigUtil {
         return _preferences.getInt(key, defValue);
     }
 
+    @SuppressWarnings("null")
     protected long getLong(String key) {
         return getLong(key, (Long) null);
     }
