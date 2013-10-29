@@ -14,7 +14,7 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
     "doc" on declare-styleable:
@@ -28,6 +28,35 @@
         <attr name="itemIcon" format="reference" />
         <attr name="canBeActive" format="boolean" />
         <attr name="isActive" format="boolean" />
+    </declare-styleable>
+
+    <!-- GuidedEditText attributes -->
+    <declare-styleable name="GuidedEditText">
+        <attr name="itemLayout" />
+        <attr name="editTextViewId" format="reference" />
+        <attr name="guideTextViewId" format="reference" />
+        <attr name="android:background" />
+        <attr name="android:text" />
+        <attr name="android:textSize" />
+        <attr name="android:hint" />
+        <attr name="android:inputType" />
+        <attr name="android:textColor" />
+        <attr name="android:textColorHint" />
+        <attr name="android:padding" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingRight" />
+
+        <!--
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingEnd" />
+        -->
+        <eat-comment />
+
+        <attr name="guideText" format="string" localization="suggested" />
+        <attr name="isGuideVisible" format="boolean" />
+        <attr name="guideTextColor" format="color" />
     </declare-styleable>
 
 </resources>
