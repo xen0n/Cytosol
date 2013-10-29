@@ -57,6 +57,7 @@
         <attr name="guideText" format="string" localization="suggested" />
         <attr name="isGuideVisible" format="boolean" />
         <attr name="guideTextColor" format="color" />
+        <attr name="guideViewStyle" format="reference" />
     </declare-styleable>
 
 </resources>
