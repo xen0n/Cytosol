@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -316,9 +317,16 @@ public class GuidedEditText extends RelativeLayout {
             .getBackground();
     }
 
+    @SuppressWarnings("deprecation")
     protected void doSetBackground(Drawable background) {
-        // if (editText != null)
-        editText.setBackground(background);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            editText.setBackground(background);
+        } else {
+            // use old API
+            // TODO: check compatibility issues like potential drawable
+            // paddings
+            editText.setBackgroundDrawable(background);
+        }
     }
 
     public void setBackground(Drawable background) {
