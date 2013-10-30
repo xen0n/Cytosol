@@ -117,6 +117,8 @@ build_abs () {
     if ${use_custom_abs}; then
         echoinfo "Building and installing ActionBarSherlock library"
 
+        gh_repo_sync "${abs_repo_author}" "${abs_name}"
+
         cd "${abs_name}"
         git_co "${abs_ver}" "${abs_pull}"
 
@@ -139,6 +141,8 @@ build_vpi () {
     if ${use_custom_vpi}; then
         echoinfo "Building and installing ViewPagerIndicator"
 
+        gh_repo_sync "${vpi_repo_author}" "${vpi_name}"
+
         cd "${vpi_name}"
         git_co "${vpi_ver}" "${vpi_pull}"
 
@@ -155,6 +159,8 @@ build_vpi () {
 build_smenu () {
     if ${use_custom_smenu}; then
         echoinfo "Building and installing SlidingMenu library"
+
+        gh_repo_sync "${smenu_repo_author}" "${smenu_name}"
 
         cd "${smenu_name}"
         git_co "${smenu_ver}" "${smenu_pull}"
@@ -181,10 +187,6 @@ echoinfo ""
 _mvnver="$( mvn_version )"
 echo "${_mvnver}" | grep '^Apache Maven 3.0' > /dev/null 2>&1 || mvn_version_fail "${_mvnver}"
 unset _mvnver
-
-gh_repo_sync "${abs_repo_author}" "${abs_name}"
-gh_repo_sync "${vpi_repo_author}" "${vpi_name}"
-gh_repo_sync "${smenu_repo_author}" "${smenu_name}"
 
 build_abs
 build_vpi
