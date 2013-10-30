@@ -10,17 +10,19 @@ use_custom_abs=false
 abs_name=ActionBarSherlock
 abs_repo_author=xen0n
 abs_ver=4.4.0-xen0n
+abs_pull=false
 
 use_custom_vpi=false
 vpi_name=Android-ViewPagerIndicator
 vpi_repo_author=xen0n
 vpi_ver=2.4.1-xen0n
+vpi_pull=false
 
 use_custom_smenu=true
 smenu_name=SlidingMenu
 smenu_repo_author=xen0n
 smenu_ver=master
-
+smenu_pull=true
 
 # Helpers
 echoinfo () {
@@ -95,13 +97,18 @@ gh_repo_sync () {
 # Build helpers
 git_co () {
     ver=$1
+    do_pull=$2
 
-    "${GIT_CMD}" checkout "${ver}" || errexit 101 "git checkout failed"
+    "${GIT_CMD}" checkout "${ver}" || errexit 5 "git checkout failed"
+
+    if ${do_pull}; then
+        "${GIT_CMD}" pull || errexit 6 "git pull failed"
+    fi
 }
 
 
 domvn () {
-    "${MVN_CMD}" $@ || errexit 103 "domvn failed"
+    "${MVN_CMD}" $@ || errexit 7 "domvn failed"
 }
 
 
@@ -111,7 +118,7 @@ build_abs () {
         echoinfo "Building and installing ActionBarSherlock library"
 
         cd "${abs_name}"
-        git_co "${abs_ver}"
+        git_co "${abs_ver}" "${abs_pull}"
 
         cd actionbarsherlock || errexit 102 "directory layout unrecognized"
         domvn clean install
@@ -133,7 +140,7 @@ build_vpi () {
         echoinfo "Building and installing ViewPagerIndicator"
 
         cd "${vpi_name}"
-        git_co "${vpi_ver}"
+        git_co "${vpi_ver}" "${vpi_pull}"
 
         domvn clean install -q
 
@@ -150,7 +157,7 @@ build_smenu () {
         echoinfo "Building and installing SlidingMenu library"
 
         cd "${smenu_name}"
-        git_co "${smenu_ver}"
+        git_co "${smenu_ver}" "${smenu_pull}"
 
         cd library || errexit 102 "directory layout unrecognized"
         domvn clean install -q
