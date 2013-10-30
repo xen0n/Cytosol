@@ -1,5 +1,8 @@
 #!/bin/sh
 
+PROJECT_NAME="Cytosol"
+
+
 # Commands
 GIT_CMD="${GIT_CMD:-git}"
 MVN_CMD="${MVN_CMD:-mvn}"
@@ -26,13 +29,13 @@ smenu_pull=true
 
 # Helpers
 echoinfo () {
-    echo -e "\033[1;32m * \033[m$@" ;
+    echo -e "\033[1;32m * \033[m[${PROJECT_NAME}] $@" ;
 }
 
 # stderr Helper
 # http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
 echoerr () {
-    echo -e "$@" >&2;
+    echo -e "\033[1;31m * \033[m[${PROJECT_NAME}] $@" >&2;
 }
 
 
