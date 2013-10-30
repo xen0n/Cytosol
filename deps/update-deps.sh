@@ -118,14 +118,13 @@ domvn () {
 # custom ABS
 build_abs () {
     if ${use_custom_abs}; then
-        echoinfo "Building and installing ActionBarSherlock library"
-
         gh_repo_sync "${abs_repo_author}" "${abs_name}"
 
         cd "${abs_name}"
         git_co "${abs_ver}" "${abs_pull}"
 
         cd actionbarsherlock || errexit 102 "directory layout unrecognized"
+        echoinfo "Building and installing ActionBarSherlock library"
         domvn clean install
 
         cd ..
@@ -142,13 +141,12 @@ build_abs () {
 # custom VPI
 build_vpi () {
     if ${use_custom_vpi}; then
-        echoinfo "Building and installing ViewPagerIndicator"
-
         gh_repo_sync "${vpi_repo_author}" "${vpi_name}"
 
         cd "${vpi_name}"
         git_co "${vpi_ver}" "${vpi_pull}"
 
+        echoinfo "Building and installing ViewPagerIndicator"
         domvn clean install -q
 
         cd ..
@@ -161,14 +159,13 @@ build_vpi () {
 # custom SlidingMenu
 build_smenu () {
     if ${use_custom_smenu}; then
-        echoinfo "Building and installing SlidingMenu library"
-
         gh_repo_sync "${smenu_repo_author}" "${smenu_name}"
 
         cd "${smenu_name}"
         git_co "${smenu_ver}" "${smenu_pull}"
 
         cd library || errexit 102 "directory layout unrecognized"
+        echoinfo "Building and installing SlidingMenu library"
         domvn clean install -q
 
         cd ..
