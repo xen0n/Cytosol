@@ -18,8 +18,6 @@ package name.xen0n.cytosol.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import name.xen0n.cytosol.network.util.GzipRestTemplate;
-
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
@@ -45,12 +43,21 @@ public class CytosolSpiceService extends SpringAndroidSpiceService {
      * Network request timeout in milliseconds.
      */
     public final int REQUEST_TIMEOUT;
+
+    /**
+     * RestTemplate to use.
+     */
+    public final Class<? extends RestTemplate> REST_TEMPLATE_CLASS;
+
     private ArrayList<ClientHttpRequestInterceptor> _interceptors;
 
-    protected CytosolSpiceService(final int requestTimeout) {
+    protected CytosolSpiceService(
+            final int requestTimeout,
+            final Class<? extends RestTemplate> restTemplateClass) {
         super();
 
         REQUEST_TIMEOUT = requestTimeout;
+        REST_TEMPLATE_CLASS = restTemplateClass;
 
         // session interceptor should be a singleton
         _interceptors = new ArrayList<ClientHttpRequestInterceptor>();
@@ -83,7 +90,6 @@ public class CytosolSpiceService extends SpringAndroidSpiceService {
             cacheManager.addPersister(inFileInputStreamObjectPersister);
             cacheManager.addPersister(inJSonFileObjectPersisterFactory);
         } catch (CacheCreationException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             throw e;
         }
@@ -93,7 +99,18 @@ public class CytosolSpiceService extends SpringAndroidSpiceService {
 
     @Override
     public RestTemplate createRestTemplate() {
-        RestTemplate restTemplate = new GzipRestTemplate();
+        RestTemplate restTemplate;
+
+        try {
+            restTemplate = REST_TEMPLATE_CLASS.newInstance();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+            return null;
+        }
+
         // find more complete examples in RoboSpice Motivation app
         // to enable Gzip compression and setting request timeouts.
 
