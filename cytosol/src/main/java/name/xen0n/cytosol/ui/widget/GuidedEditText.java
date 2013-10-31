@@ -18,12 +18,16 @@ package name.xen0n.cytosol.ui.widget;
 import java.text.MessageFormat;
 
 import name.xen0n.cytosol.R;
+import name.xen0n.cytosol.util.ViewIdHelper;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -88,6 +92,11 @@ public class GuidedEditText extends RelativeLayout {
         guideMessage = (TextView) findViewById(guideTextViewId == 0
                 ? R.id.cy__guidedGuideMessage
                 : guideTextViewId);
+
+        // Important: set unique IDs for the inflated layouts, so that
+        // state persistence works correctly!
+        editText.setId(ViewIdHelper.generateViewId());
+        guideMessage.setId(ViewIdHelper.generateViewId());
 
         // consider framework-level init "completed"
         viewInitCompleted = true;
@@ -573,5 +582,123 @@ public class GuidedEditText extends RelativeLayout {
     // OnEditorActionListener
     public void setOnEditorActionListener(OnEditorActionListener l) {
         editText.setOnEditorActionListener(l);
+    }
+
+    /*
+     * state persistence management
+     */
+    public static class SavedState extends BaseSavedState {
+        private final CharSequence text;
+        private final CharSequence guideText;
+        private final int guideVisibility;
+
+        private final int pT;
+        private final int pB;
+        private final int pL;
+        private final int pR;
+
+        public SavedState(
+                Parcelable superState,
+                CharSequence text,
+                CharSequence guideText,
+                int guideVisibility,
+                int paddingTop,
+                int paddingBottom,
+                int paddingLeft,
+                int paddingRight) {
+            super(superState);
+
+            this.text = text;
+            this.guideText = guideText;
+            this.guideVisibility = guideVisibility;
+
+            pT = paddingTop;
+            pB = paddingBottom;
+            pL = paddingLeft;
+            pR = paddingRight;
+        }
+
+        private SavedState(Parcel in) {
+            super(in);
+
+            text = TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
+            guideText = TextUtils.CHAR_SEQUENCE_CREATOR.createFromParcel(in);
+            guideVisibility = in.readInt();
+
+            pT = in.readInt();
+            pB = in.readInt();
+            pL = in.readInt();
+            pR = in.readInt();
+        }
+
+        public CharSequence getText() {
+            return text;
+        }
+
+        public CharSequence getGuideText() {
+            return guideText;
+        }
+
+        public int getGuideVisibility() {
+            return guideVisibility;
+        }
+
+        public void setPaddings(GuidedEditText text) {
+            text.doSetPadding(pL, pT, pR, pB);
+        }
+
+        public void writeToParcel(Parcel out, int flags) {
+            super.writeToParcel(out, flags);
+
+            TextUtils.writeToParcel(text, out, flags);
+            TextUtils.writeToParcel(guideText, out, flags);
+            out.writeInt(guideVisibility);
+
+            out.writeInt(pT);
+            out.writeInt(pB);
+            out.writeInt(pL);
+            out.writeInt(pR);
+        }
+
+        public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() {
+            public SavedState createFromParcel(Parcel in) {
+                return new SavedState(in);
+            }
+
+            public SavedState[] newArray(int size) {
+                return new SavedState[size];
+            }
+        };
+    }
+
+    @Override
+    public Parcelable onSaveInstanceState() {
+        Log.v(TAG, "onSaveInstanceState: " + editText.getText().toString());
+
+        Parcelable superState = super.onSaveInstanceState();
+
+        // is persistence of fancy CharSequence things needed?
+        SavedState ss = new SavedState(
+                superState,
+                editText.getText(),
+                guideMessage.getText(),
+                guideMessage.getVisibility(),
+                editText.getPaddingTop(),
+                editText.getPaddingBottom(),
+                editText.getPaddingLeft(),
+                editText.getPaddingRight());
+        return ss;
+    }
+
+    @Override
+    public void onRestoreInstanceState(Parcelable state) {
+        SavedState ss = (SavedState) state;
+        super.onRestoreInstanceState(ss.getSuperState());
+
+        Log.v(TAG, "onRestoreInstanceState: " + ss.getText());
+        doSetText(ss.getText());
+        guideMessage.setVisibility(ss.getGuideVisibility());
+        doSetGuideText(ss.getGuideText());
+        ss.setPaddings(this);
     }
 }
