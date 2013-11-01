@@ -29,13 +29,13 @@ smenu_pull=true
 
 # Helpers
 echoinfo () {
-    echo -e "\033[1;32m * \033[m[${PROJECT_NAME}] $@" ;
+    printf "\033[1;32m * \033[m[${PROJECT_NAME}] $@\n" ;
 }
 
 # stderr Helper
 # http://stackoverflow.com/questions/2990414/echo-that-outputs-to-stderr
 echoerr () {
-    echo -e "\033[1;31m * \033[m[${PROJECT_NAME}] $@" >&2;
+    printf "\033[1;31m * \033[m[${PROJECT_NAME}] $@\n" >&2;
 }
 
 
