@@ -1,9 +1,11 @@
 # Cytosol for Android
 
-**cytosol** _n._ The liquid found inside cells, a.k.a. _intracellular fluid_
-(_ICF_) or _cytoplasmic matrix_. / 细胞质基质
+[**cytosol**][bio-def-wiki] _n._ The liquid found inside cells, a.k.a.
+_intracellular fluid_ (_ICF_) or _cytoplasmic matrix_. / 细胞质基质
 
-Cytosol helps you compose your Android app's "cells!"
+[bio-def-wiki]: https://en.wikipedia.org/wiki/Cytosol
+
+Cytosol helps you better compose your Android app's "cells!"
 / 帮你更好地组织你安卓应用的 "细胞"!
 
 
