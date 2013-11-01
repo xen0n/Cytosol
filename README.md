@@ -5,7 +5,7 @@ _intracellular fluid_ (_ICF_) or _cytoplasmic matrix_. / 细胞质基质
 
 [bio-def-wiki]: https://en.wikipedia.org/wiki/Cytosol
 
-![Cytosol logo](//raw.github.com/xen0n/Cytosol/master/logo.png)
+![Cytosol logo](/logo.png)
 
 Cytosol helps you better compose your Android app's "cells!"
 / 帮你更好地组织你安卓应用的 "细胞"!
