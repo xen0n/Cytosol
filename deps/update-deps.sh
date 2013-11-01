@@ -24,8 +24,8 @@ vpi_pull=false
 use_custom_smenu=true
 smenu_name=SlidingMenu
 smenu_repo_author=xen0n
-smenu_ver=master
-smenu_pull=true
+smenu_ver=598961cc57e69b26fba2b656920278f6c72f93f2
+smenu_pull=false
 
 # Helpers
 echoinfo () {
