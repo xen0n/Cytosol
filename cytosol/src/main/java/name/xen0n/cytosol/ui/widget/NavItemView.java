@@ -16,6 +16,7 @@
 package name.xen0n.cytosol.ui.widget;
 
 import name.xen0n.cytosol.R;
+import name.xen0n.cytosol.util.ViewIdHelper;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
@@ -79,6 +80,10 @@ public class NavItemView extends RelativeLayout {
         viewIsActive = findViewById(activeBarViewId == 0
                 ? R.id.cy__viewIsActive
                 : activeBarViewId);
+
+        // assign new ID without conflicts
+        textNavItem.setId(ViewIdHelper.generateViewId());
+        viewIsActive.setId(ViewIdHelper.generateViewId());
     }
 
     protected void initAttrs(Context context, AttributeSet attrs) {
