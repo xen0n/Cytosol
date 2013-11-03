@@ -15,7 +15,7 @@
  */
 package name.xen0n.cytosol.build;
 
-public final class LibraryBuild {
+public final class CytosolBuild {
     public static final int VERSION_INT = VERSION_CODES.V2_0;
     public static final String VERSION_STR = "2.0-SNAPSHOT";
 
