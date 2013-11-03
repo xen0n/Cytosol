@@ -20,9 +20,20 @@ import android.telephony.TelephonyManager;
 
 
 public class TelephonyHelper {
-    public static String getPhoneNumber(Context ctx) {
-        TelephonyManager tMgr = (TelephonyManager) (ctx
+    public static TelephonyManager getTelephonyManager(Context ctx) {
+        return (TelephonyManager) (ctx
             .getSystemService(Context.TELEPHONY_SERVICE));
-        return tMgr.getLine1Number();
+    }
+
+    public static String getPhoneNumber(Context ctx) {
+        return getTelephonyManager(ctx).getLine1Number();
+    }
+
+    public static String getDeviceId(Context ctx) {
+        return getTelephonyManager(ctx).getDeviceId();
+    }
+
+    public static int getPhoneType(Context ctx) {
+        return getTelephonyManager(ctx).getPhoneType();
     }
 }
