@@ -22,14 +22,14 @@ import android.content.Context;
 
 public class ConfigHub {
     private static ConfigHub hub;
-    private HashMap<String, ConfigManager> managers;
+    private HashMap<String, SharedPreferencesHelper> helpers;
 
     // TODO: refactor this to make the "utils" mechanism more generic
     private UIConfigUtil uiUtil;
     private UpdaterConfigUtil updaterUtil;
 
     private ConfigHub() {
-        managers = new HashMap<String, ConfigManager>();
+        helpers = new HashMap<String, SharedPreferencesHelper>();
     }
 
     private static void ensureHub() {
@@ -38,14 +38,16 @@ public class ConfigHub {
         }
     }
 
-    public static ConfigManager getConfigManager(Context context) {
+    public static SharedPreferencesHelper getPrefHelper(Context context) {
         ensureHub();
-        return hub.ensureConfigManager("", context);
+        return hub.ensurePrefHelper("", context);
     }
 
-    public static ConfigManager getConfigManager(String name, Context context) {
+    public static SharedPreferencesHelper getPrefHelper(
+            String name,
+            Context context) {
         ensureHub();
-        return hub.ensureConfigManager(name, context);
+        return hub.ensurePrefHelper(name, context);
     }
 
     public static UIConfigUtil getUIUtil(Context context) {
@@ -58,23 +60,25 @@ public class ConfigHub {
         return hub.ensureUpdaterUtil(context);
     }
 
-    private ConfigManager ensureConfigManager(String name, Context context) {
-        if (managers.containsKey(name)) {
-            return managers.get(name);
+    private SharedPreferencesHelper ensurePrefHelper(
+            String name,
+            Context context) {
+        if (helpers.containsKey(name)) {
+            return helpers.get(name);
         }
 
-        // Create a ConfigManager.
+        // Create a SharedPreferencesHelper.
         // TODO: Currently only MODE_PRIVATE prefs are supported
-        ConfigManager mgr;
+        SharedPreferencesHelper helper;
         if (name.length() == 0) {
             // Default shared preferences
-            mgr = new ConfigManager(context);
+            helper = new SharedPreferencesHelper(context);
         } else {
-            mgr = new ConfigManager(name, context);
+            helper = new SharedPreferencesHelper(name, context);
         }
 
-        managers.put(name, mgr);
-        return mgr;
+        helpers.put(name, helper);
+        return helper;
     }
 
     private UIConfigUtil ensureUIUtil(Context context) {

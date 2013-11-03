@@ -22,20 +22,20 @@ import android.content.SharedPreferences;
 public class BaseConfigUtil {
     protected SharedPreferences _preferences;
     protected SharedPreferences.Editor _preferencesEditor;
-    protected ConfigManager configManager;
+    protected SharedPreferencesHelper prefHelper;
 
     protected BaseConfigUtil(Context context) {
-        initState(ConfigHub.getConfigManager(context));
+        initState(ConfigHub.getPrefHelper(context));
     }
 
     protected BaseConfigUtil(String configName, Context context) {
-        initState(ConfigHub.getConfigManager(configName, context));
+        initState(ConfigHub.getPrefHelper(configName, context));
     }
 
-    protected void initState(ConfigManager mgr) {
-        configManager = mgr;
-        _preferences = configManager.getAppPreferences();
-        _preferencesEditor = configManager.getAppPreferencesEditor();
+    protected void initState(SharedPreferencesHelper helper) {
+        prefHelper = helper;
+        _preferences = prefHelper.getAppPreferences();
+        _preferencesEditor = prefHelper.getAppPreferencesEditor();
     }
 
     protected String getString(String key) {

@@ -21,19 +21,19 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 
-public class ConfigManager {
+public class SharedPreferencesHelper {
     private SharedPreferences appPreferences;
     private SharedPreferences.Editor appPreferencesEditor;
 
-    public ConfigManager(Context context) {
+    public SharedPreferencesHelper(Context context) {
         initStates(PreferenceManager.getDefaultSharedPreferences(context));
     }
 
-    public ConfigManager(String name, Context context) {
+    public SharedPreferencesHelper(String name, Context context) {
         initStates(context.getSharedPreferences(name, Context.MODE_PRIVATE));
     }
 
-    public ConfigManager(String name, int mode, Context context) {
+    public SharedPreferencesHelper(String name, int mode, Context context) {
         initStates(context.getSharedPreferences(name, mode));
     }
 
